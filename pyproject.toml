@@ -1,0 +1,44 @@
+[project]
+name = "labthings-fastapi"
+version = "0.0.0"
+authors = [
+  { name="Richard Bowman", email="richard.bowman@cantab.net" },
+]
+description = "A test implementation of LabThings using FastAPI"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "fastapi[all]>=0.104.0",
+  "pydantic>=2.0.0",
+  "jsonschema",
+  "typing_extensions",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0, <8",
+  "pytest-cov",
+  "mypy>=1.6.1, <2",
+  "ruff>=0.1.3",
+  "types-jsonschema",
+  "numpy~=1.20",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rwb27/labthings-fastapi"
+"Bug Tracker" = "https://github.com/rwb27/labthings-fastapi/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+target-version = "py39"
+
+[tool.mypy]
+plugins = ["pydantic.mypy", "numpy.typing.mypy_plugin"]
